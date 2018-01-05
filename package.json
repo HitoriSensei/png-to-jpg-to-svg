@@ -3,5 +3,11 @@
   "dependencies": {
     "gm": "^1.23.1",
     "mustache": "^2.3.0"
-  }
+  },
+  "name": "createsvg",
+  "version": "1.0.0",
+  "description": "Converts a PNG file to a set of JPG+SVG files making an effect of \"jpg with transparency\". Allows up to ~85% size decrease of transparent raster images.",
+  "repository": "https://github.com/HitoriSensei/png-to-jpg-to-svg.git",
+  "author": "Piotr \"Hitori\" Bosak <piotr.bosak@vml.com>",
+  "license": "MIT"
 }
