@@ -6,4 +6,5 @@ When using the created SVG file, browser needs to support SVG filters:
 https://caniuse.com/#feat=svg-filters
 
 Example:
+https://codepen.io/HitoriSensei/pen/xpXypv
 https://codepen.io/HitoriSensei/pen/QaqVwb
