@@ -1,0 +1,7 @@
+{
+  "main": "createsvg.js",
+  "dependencies": {
+    "gm": "^1.23.1",
+    "mustache": "^2.3.0"
+  }
+}
