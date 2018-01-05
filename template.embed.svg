@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg version="1.1" viewbox="0 0 726 741" width="726px" height="741px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg version="1.1" viewbox="0 0 {{width}} {{height}}" width="{{width}}px" height="{{height}}px" xmlns="http://www.w3.org/2000/svg">
   <filter id="blend">
-      <feImage xlink:href="./hibiscus.png.a.jpg" result="mask" x="0" y="0" width="726" height="741"/>
+      <feImage href="data:image/jpeg;base64,{{{Alpha}}}" result="mask" x="0" y="0" width="{{width}}" height="{{height}}"/>
     
     <feColorMatrix 
       type="matrix" 
@@ -15,5 +15,5 @@
     <feComposite in="alpha" in2="SourceGraphic"
                    operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/>
   </filter>
-  <image filter="url(#blend)" x="0" y="0" width="726" height="741" xlink:href="./hibiscus.png.rgb.jpg"/>
+  <image filter="url(#blend)" x="0" y="0" width="{{width}}" height="{{height}}" href="data:image/jpeg;base64,{{{RGB}}}"/>
 </svg>

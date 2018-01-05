@@ -22,47 +22,91 @@ const RGBMatrix = [
 /**
  * create alpha image
  */
-gm(sourcePath)
+const Alpha = new Promise(
+	(y, n) => gm(sourcePath)
 	.recolor(AlphaMatrix)
 	.quality(70)
-	.write(`${sourcePath}.a.jpg`, (err) => {
+	.toBuffer(`JPEG`, (err, Alphabuffer) => {
 		if(err) {
-			console.error(err)
-			process.exit(1)
+			return n(err)
 		}
+		y(Alphabuffer)
 	})
+)
 
 
 /**
  * create rgb image
  */
-gm(sourcePath)
-	.recolor(RGBMatrix)
-	.quality(80)
-	.write(`${sourcePath}.rgb.jpg`, (err) => {
-		if(err) {
-			console.error(err)
-			process.exit(1)
-		}
-	})
+const RGB = new Promise(
+	(y, n) => gm(sourcePath)
+		.recolor(RGBMatrix)
+		.quality(80)
+		.toBuffer(`JPEG`, (err, RGBbuffer) => {
+			if(err) {
+				return n(err)
+			}
+			y(RGBbuffer)
+		})
+)
 
-gm(sourcePath)
-	.size((err, data) => {
-		if(err) {
-			console.error(err)
-			process.exit(1)
-			return
+
+const Dimensions = new Promise(
+	(y, n) => gm(sourcePath)
+		.size((err, data) => {
+			if(err) {
+				return n(err)
+			}
+			y(data)
+		})
+)
+
+
+Promise.all([
+	Alpha,
+	RGB,
+	Dimensions
+])
+	.then(([
+		Alpha,
+		RGB,
+		Dimensions
+	]) => {
+		const RGBUrl = `${sourcePath}.rgb.jpg`
+		const AlphaURL = `${sourcePath}.a.jpg`
+
+		const Data = {
+			width: String(Dimensions.width),
+			height: String(Dimensions.height),
+			RGB: RGB.toString('base64'),
+			Alpha: Alpha.toString('base64'),
+			RGBUrl: `./${RGBUrl}`,
+			AlphaUrl: `./${AlphaURL}`,
 		}
+
+		fs.writeFileSync(
+			RGBUrl,
+			RGB	
+		)
+
+		fs.writeFileSync(
+			AlphaURL,
+			Alpha	
+		)
 
 		fs.writeFileSync(
 			`${sourcePath}.svg`,
 			Mustache.render(
 				fs.readFileSync('template.svg').toString(),
-				{
-					width: String(data.width),
-					height: String(data.height),
-					image: sourcePath,
-				}
+				Data
+			)	
+		)
+
+		fs.writeFileSync(
+			`${sourcePath}.embed.svg`,
+			Mustache.render(
+				fs.readFileSync('template.embed.svg').toString(),
+				Data
 			)	
 		)
 	})
