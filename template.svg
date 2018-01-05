@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg viewbox="0 0 {{width}} {{height}}" width="{{width}}px" height="{{height}}px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewbox="0 0 {{width}} {{height}}" width="{{width}}px" height="{{height}}px" xmlns="http://www.w3.org/2000/svg">
   <filter id="blend">
-    <feImage xlink:href="./{{image}}.a.jpg" result="mask" x="0" y="0" width="{{width}}" height="{{height}}"/>
-    <feImage xlink:href="./{{image}}.rgb.jpg" result="image" x="0" y="0" width="{{width}}" height="{{height}}"/>
+    <feImage href="./{{image}}.a.jpg" result="mask" x="0" y="0" width="{{width}}" height="{{height}}"/>
+    <feImage href="./{{image}}.rgb.jpg" result="image" x="0" y="0" width="{{width}}" height="{{height}}"/>
     
     <feColorMatrix 
       type="matrix" 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg viewbox="0 0 726 741" width="726px" height="741px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewbox="0 0 726 741" width="726px" height="741px" xmlns="http://www.w3.org/2000/svg">
   <filter id="blend">
-    <feImage xlink:href="./hibiscus.png.a.jpg" result="mask" x="0" y="0" width="726" height="741"/>
-    <feImage xlink:href="./hibiscus.png.rgb.jpg" result="image" x="0" y="0" width="726" height="741"/>
+    <feImage href="./hibiscus.png.a.jpg" result="mask" x="0" y="0" width="726" height="741"/>
+    <feImage href="./hibiscus.png.rgb.jpg" result="image" x="0" y="0" width="726" height="741"/>
     
     <feColorMatrix 
       type="matrix" 
