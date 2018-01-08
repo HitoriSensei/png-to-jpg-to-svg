@@ -4,6 +4,8 @@ const fs = require('fs')
 const Mustache = require('mustache')
 
 const sourcePath = process.argv[2]
+const RGBquality = process.argv[3] || 80
+const Alphaquality = process.argv[4] || 90
 
 const AlphaMatrix = [
 	0,0,0,0,
@@ -25,7 +27,7 @@ const RGBMatrix = [
 const Alpha = new Promise(
 	(y, n) => gm(sourcePath)
 	.recolor(AlphaMatrix)
-	.quality(70)
+	.quality(Alphaquality)
 	.toBuffer(`JPEG`, (err, Alphabuffer) => {
 		if(err) {
 			return n(err)
@@ -41,7 +43,7 @@ const Alpha = new Promise(
 const RGB = new Promise(
 	(y, n) => gm(sourcePath)
 		.recolor(RGBMatrix)
-		.quality(80)
+		.quality(RGBquality)
 		.toBuffer(`JPEG`, (err, RGBbuffer) => {
 			if(err) {
 				return n(err)
