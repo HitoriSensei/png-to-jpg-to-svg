@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg version="1.1" viewbox="0 0 726 741" width="726px" height="741px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <filter id="blend">
-      <feImage xlink:href="./hibiscus.png.a.jpg" result="mask" x="0" y="0" width="726" height="741"/>
-    
-    <feColorMatrix 
-      type="matrix" 
-      in="mask"
-      values="0 0 0 0 1
-              0 0 0 0 1
-              0 0 0 0 1
-              0 0 1 0 0"
-      result="alpha"                   
-    />
-    <feComposite in="alpha" in2="SourceGraphic"
-                   operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/>
-  </filter>
-  <image filter="url(#blend)" x="0" y="0" width="726" height="741" xlink:href="./hibiscus.png.rgb.jpg"/>
+<svg version="1.1" viewbox="0 0 640 559" width="640px" height="559px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter id="blend">
+        <feImage xlink:href="./hibiscus.png.a.jpg" result="mask" x="0" y="0" width="640" height="559"/>
+      
+      <feColorMatrix 
+        type="matrix" 
+        in="mask"
+        values="0 0 0 0 1
+                0 0 0 0 1
+                0 0 0 0 1
+                0 0 1 0 0"
+        result="alpha"                   
+      />
+      <feComposite in="alpha" in2="SourceGraphic"
+                     operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/>
+    </filter>
+  </defs>
+  <image filter="url(#blend)" x="0" y="0" width="640" height="559" xlink:href="./hibiscus.png.rgb.jpg"/>
 </svg>
