@@ -7,11 +7,28 @@
   "scripts": {
     "start": "node createsvg.js"
   },
-  "bin": "./createsvg.js",
+  "bin": {
+    "png-to-svg": "./createsvg.js"
+  },
   "name": "png-to-svg",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Converts a PNG file to a set of JPG+SVG files making an effect of \"jpg with transparency\". Allows up to ~85% size decrease of transparent raster images.",
-  "repository": "https://github.com/HitoriSensei/png-to-jpg-to-svg.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HitoriSensei/png-to-jpg-to-svg.git"
+  },
   "author": "Piotr \"Hitori\" Bosak <piotr.bosak@vml.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HitoriSensei/png-to-jpg-to-svg/issues"
+  },
+  "homepage": "https://github.com/HitoriSensei/png-to-jpg-to-svg#readme",
+  "devDependencies": {},
+  "keywords": [
+    "png",
+    "svg",
+    "convert",
+    "size",
+    "alpha"
+  ]
 }
