@@ -2,10 +2,18 @@
 const gm = require('gm')
 const fs = require('fs')
 const Mustache = require('mustache')
+const path = require('path')
 
 const sourcePath = process.argv[2]
 const RGBquality = process.argv[3] || 80
 const Alphaquality = process.argv[4] || 90
+
+if(!sourcePath) {
+	console.error('No PNG path provided')
+	console.warn(`Usage: ${process.argv[1]} path/to/file.png [color quality 0-100 default:80] [alpha quality 0-100 default:90]`)
+	process.exit(1)
+	return
+}
 
 const AlphaMatrix = [
 	0,0,0,0,
@@ -35,6 +43,7 @@ const Alpha = new Promise(
 		y(Alphabuffer)
 	})
 )
+	.catch(console.error)
 
 
 /**
@@ -51,6 +60,7 @@ const RGB = new Promise(
 			y(RGBbuffer)
 		})
 )
+	.catch(console.error)
 
 
 const Dimensions = new Promise(
@@ -82,8 +92,8 @@ Promise.all([
 			height: String(Dimensions.height),
 			RGB: RGB.toString('base64'),
 			Alpha: Alpha.toString('base64'),
-			RGBUrl: `./${RGBUrl}`,
-			AlphaUrl: `./${AlphaURL}`,
+			RGBUrl: `./${path.basename(RGBUrl)}`,
+			AlphaUrl: `./${path.basename(AlphaURL)}`,
 		}
 
 		fs.writeFileSync(
@@ -112,3 +122,4 @@ Promise.all([
 			)	
 		)
 	})
+	.catch(console.error)
