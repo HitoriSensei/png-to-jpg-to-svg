@@ -109,7 +109,7 @@ Promise.all([
 		fs.writeFileSync(
 			`${sourcePath}.svg`,
 			Mustache.render(
-				fs.readFileSync('template.svg').toString(),
+				fs.readFileSync(path.join(__dirname,'template.svg')).toString(),
 				Data
 			)	
 		)
@@ -117,7 +117,7 @@ Promise.all([
 		fs.writeFileSync(
 			`${sourcePath}.embed.svg`,
 			Mustache.render(
-				fs.readFileSync('template.embed.svg').toString(),
+				fs.readFileSync(path.join(__dirname,'template.embed.svg')).toString(),
 				Data
 			)	
 		)
