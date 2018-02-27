@@ -11,7 +11,7 @@
     "png-to-svg": "./createsvg.js"
   },
   "name": "png-to-svg",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Converts a PNG file to a set of JPG+SVG files making an effect of \"jpg with transparency\". Allows up to ~85% size decrease of transparent raster images.",
   "repository": {
     "type": "git",
