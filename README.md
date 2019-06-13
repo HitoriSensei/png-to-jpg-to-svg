@@ -3,7 +3,7 @@ Allows to get goodies from both JPG (compression algorithm) and PNG (alpha chann
 
 Converts a PNG file to a set of JPG+SVG files making a some kind of "JPG with alpha channel" image using SVG filters.
 
-Allows up to ~85% size decrease of complicated images compared to a PNG file.
+Allows up to ~85% size decrease of non-trivial images (like semi-transparent photos) compared to a PNG file.
 
 IE 10+ support.
 
